@@ -1,0 +1,4 @@
+provider: cursor
+model: auto
+language: en
+concurrency: 1

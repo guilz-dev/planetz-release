@@ -1,0 +1,10 @@
+root: ./
+
+structure:
+  readme: README.md
+  summary: SUMMARY.md
+
+# English is the primary content (repository root of this directory).
+# A Japanese mirror lives under ./ja/ (ja/README.md + ja/SUMMARY.md).
+# To expose the language switch, configure a GitBook content variant
+# pointing at the ./ja/ path. See docs/marketing for the setup runbook.

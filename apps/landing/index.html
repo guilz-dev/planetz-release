@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Planetz × Manta — Run autonomous AI agents on the edge, give orders by voice, and approve with your thumb. Command software Planetz and the Manta desktop robot."
+    />
+    <title>Planetz × Manta — Command your agent squad from your desk</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-light.svg" type="image/svg+xml" media="(prefers-color-scheme: light)" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="orb orb-a" aria-hidden="true"></div>
+    <div class="orb orb-b" aria-hidden="true"></div>
+
+    <header class="site-header" data-header>
+      <a class="brand" href="#top">
+        <img class="brand-mark" src="/favicon.svg" width="28" height="28" alt="" />
+        <span class="brand-text">Planetz</span>
+      </a>
+      <nav class="nav" data-i18n-attr="aria-label:nav.label" aria-label="Primary">
+        <a href="#manta">Manta</a>
+        <a href="#deck">Deck</a>
+        <a href="#edge">Edge AI</a>
+        <a href="#cloud">Cloud</a>
+        <a href="#pricing" data-i18n="nav.pricing">Pricing</a>
+        <a href="#faq" data-i18n="nav.faq">FAQ</a>
+      </nav>
+      <div class="header-cta">
+        <div class="lang-switch" role="group" data-i18n-attr="aria-label:lang.label" aria-label="Language">
+          <button type="button" class="lang-switch-btn is-active" data-locale="en" aria-pressed="true" data-i18n="lang.en">EN</button>
+          <button type="button" class="lang-switch-btn" data-locale="ja" aria-pressed="false" data-i18n="lang.ja">JA</button>
+        </div>
+        <a
+          class="btn btn-ghost"
+          href="https://planetz.gitbook.io/planetz"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-i18n="nav.docs"
+          >Docs</a
+        >
+        <a class="btn btn-ghost" href="#download" data-i18n="nav.download">Download</a>
+        <a class="btn btn-primary" href="#pricing" data-i18n="nav.seePricing">See pricing</a>
+      </div>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" data-nav-toggle>
+        <span class="sr-only" data-i18n="nav.menu">Menu</span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+    </header>
+
+    <nav id="mobile-nav" class="mobile-nav" hidden data-mobile-nav>
+      <div class="lang-switch lang-switch--mobile" role="group" data-i18n-attr="aria-label:lang.label" aria-label="Language">
+        <button type="button" class="lang-switch-btn is-active" data-locale="en" aria-pressed="true" data-i18n="lang.en">EN</button>
+        <button type="button" class="lang-switch-btn" data-locale="ja" aria-pressed="false" data-i18n="lang.ja">JA</button>
+      </div>
+      <a href="#manta">Manta</a>
+      <a href="#deck">Deck</a>
+      <a href="#edge">Edge AI</a>
+      <a href="#cloud">Cloud</a>
+      <a href="#pricing" data-i18n="nav.pricing">Pricing</a>
+      <a href="#faq" data-i18n="nav.faq">FAQ</a>
+      <a
+        href="https://planetz.gitbook.io/planetz"
+        target="_blank"
+        rel="noopener noreferrer"
+        data-i18n="nav.docs"
+        >Docs</a
+      >
+      <a href="#download" data-i18n="nav.download">Download</a>
+      <a class="btn btn-primary" href="#pricing" data-i18n="nav.seePricing">See pricing</a>
+    </nav>
+
+    <main id="top">
+      <section class="hero section">
+        <div class="hero-copy reveal">
+          <p class="eyebrow" data-i18n="hero.eyebrow">Edge AI × Desktop robot</p>
+          <h1 data-i18n-html="hero.titleHtml">
+            True AI-driven development,<br />
+            in <span class="gradient-text">your hands</span>
+          </h1>
+          <p class="lead" data-i18n-html="hero.leadHtml">
+            Runaway agents. Approval fatigue. Planetz <strong>solves both</strong> with a desktop robot built for AI development and a
+            desktop app with a full agent harness—so your <strong>workflow changes for good</strong>.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary btn-lg" href="#pricing" data-i18n-html="hero.reserveHtml">
+              Reserve Manta (<span class="price-promo"><s>$70</s> $35</span>)
+            </a>
+            <a class="btn btn-secondary btn-lg" href="/manta.html" data-i18n="hero.seeManta">See Manta</a>
+            <a class="btn btn-ghost btn-lg" href="#demo" data-i18n="hero.watchTeaser">Watch the demo</a>
+          </div>
+          <p class="hero-spec-link reveal">
+            <a class="text-link" href="/manta.html" data-i18n="hero.specsLink">Full specifications →</a>
+          </p>
+          <ul class="hero-badges">
+            <li>Local inference · Ollama</li>
+            <li>Physical approval · HITL</li>
+            <li>Status LCD · ambient light</li>
+          </ul>
+        </div>
+
+        <div class="hero-visual reveal" style="--reveal-delay: 120ms">
+          <div class="manta-preview">
+            <div
+              class="manta-hero-img"
+              role="img"
+              data-i18n-attr="aria-label:hero.mantaAlt"
+              aria-label="Manta — desktop AI robot with a status LCD"
+            ></div>
+            <div class="lcd-callout" aria-hidden="true">
+              <span class="lcd-label">LCD</span>
+              <strong>APPROVE?</strong>
+              <small>agent requests deploy</small>
+            </div>
+            <div class="manta-status-tag">
+              <span class="pulse"></span>
+              PROCESSING...
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="manta" class="section manta-section">
+        <div class="section-head reveal">
+          <p class="eyebrow" data-i18n="manta.eyebrow">The Body — Manta</p>
+          <h2 data-i18n="manta.title">A desktop robot built for AI-driven development</h2>
+          <p data-i18n="manta.lead">
+            Manta is a new input device designed around AI-driven development. Approval, voice input, and agent status live on your desk
+            in one place.
+          </p>
+          <p class="section-inline-link">
+            <a class="text-link" href="/manta.html" data-i18n="hero.specsLink">Full specifications →</a>
+          </p>
+        </div>
+        <div class="manta-features">
+          <div class="manta-feature-grid">
+            <article class="feature-card reveal">
+              <h3 data-i18n="manta.lcdTitle">Status LCD</h3>
+              <p data-i18n-html="manta.lcdBody">
+                <code>PROCESSING...</code>, <code>APPROVE?</code>, <code>BLOCKED</code>—see what is happening without switching monitors.
+              </p>
+            </article>
+            <article class="feature-card reveal" style="--reveal-delay: 60ms">
+              <h3 data-i18n="manta.approveTitle">Approve / Deny</h3>
+              <p data-i18n="manta.approveBody">
+                Green to proceed, red to stop. Physical human-in-the-loop for risky actions like deploy or delete.
+              </p>
+            </article>
+            <article class="feature-card reveal" style="--reveal-delay: 120ms">
+              <h3 data-i18n="manta.voiceTitle">Voice order</h3>
+              <p data-i18n="manta.voiceBody">
+                Hold Talk and speak. Speech is transcribed on your machine and sent to Planetz as the agent’s next instruction—no long
+                typing.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="deck" class="section product-split">
+        <div class="deck-intro">
+          <div class="section-head reveal">
+            <p class="eyebrow" data-i18n="deck.eyebrow">The Control Deck — Planetz</p>
+            <h2 data-i18n="deck.title">An AI harness for more autonomous agents</h2>
+            <p data-i18n="deck.lead">
+              Planetz is a desktop app that manages multiple autonomous AI agents with task lanes and workflows. Built-in harness feedback
+              reduces the cost of watching every run.
+            </p>
+          </div>
+          <figure
+            class="preview-card preview-local deck-app-preview reveal"
+            style="--reveal-delay: 80ms"
+            data-i18n-attr="aria-label:deck.previewLabel"
+            aria-label="Planetz Agent Deck screen mockup"
+          >
+            <figcaption>Planetz Agent Deck</figcaption>
+            <div class="mock-deck">
+              <div class="mock-deck-bar">
+                <span></span><span></span><span></span>
+                <em>Planetz Agent Deck</em>
+              </div>
+              <div class="mock-deck-grid">
+                <div class="mock-panel agents">
+                  <span>Agents</span>
+                  <div class="mock-agent running"></div>
+                  <div class="mock-agent idle"></div>
+                </div>
+                <div class="mock-panel lane">
+                  <span>Task lane</span>
+                  <div class="mock-task running"></div>
+                  <div class="mock-task pending"></div>
+                  <div class="mock-task done"></div>
+                </div>
+                <div class="mock-panel detail">
+                  <span>Detail</span>
+                  <div class="mock-lines"></div>
+                </div>
+              </div>
+            </div>
+          </figure>
+        </div>
+        <div class="card-grid">
+          <article class="feature-card reveal">
+            <h3 data-i18n="deck.c2Title">Command &amp; Control</h3>
+            <p data-i18n="deck.c2Body">
+              See parallel agents by task, log, approval queue, and recovery. You move from typing everything to directing the squad.
+            </p>
+          </article>
+          <article class="feature-card reveal" style="--reveal-delay: 60ms">
+            <h3 data-i18n="deck.harnessTitle">Harness control</h3>
+            <p data-i18n="deck.harnessBody">
+              Define where humans must approve in the workflow. Pair with Manta buttons to keep autonomous agents bounded.
+            </p>
+          </article>
+          <article class="feature-card reveal" style="--reveal-delay: 120ms">
+            <h3 data-i18n="deck.dataTitle">Data sovereignty</h3>
+            <p data-i18n="deck.dataBody">
+              Keep workspace, settings, and run data on your machine. Designed for teams that do not park API keys in SaaS.
+            </p>
+          </article>
+          <article class="feature-card reveal" style="--reveal-delay: 180ms">
+            <h3 data-i18n="deck.deviceTitle">Device Protocol</h3>
+            <p data-i18n="deck.deviceBody">
+              Manta connects over USB-C / BLE as an I/O appliance. Approve, reject, PTT, and state push on an open protocol roadmap.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="edge" class="section edge-section">
+        <div class="edge-layout">
+          <div class="section-head reveal">
+            <p class="eyebrow" data-i18n="edge.eyebrow">Edge AI</p>
+            <h2 data-i18n="edge.title">An app built on edge AI</h2>
+            <p class="lead narrow" data-i18n="edge.lead1">
+              Planetz Desktop connects to Ollama and local STT on your PC so agents can run without sending confidential code or documents
+              to the cloud.
+            </p>
+            <p class="lead narrow" data-i18n="edge.lead2">
+              Combine with Cloud when teams need a managed option at different security levels.
+            </p>
+          </div>
+          <div class="edge-grid">
+            <article class="signal-card reveal">
+              <span>IDLE</span>
+              <strong data-i18n="edge.idleTitle">Local idle</strong>
+              <p data-i18n="edge.idleBody">Models, workspace, and approval policy stay on your machine.</p>
+            </article>
+            <article class="signal-card reveal" style="--reveal-delay: 70ms">
+              <span>LISTENING</span>
+              <strong data-i18n="edge.listenTitle">Voice orders</strong>
+              <p data-i18n="edge.listenBody">Inject instructions from the Talk button. STT stays local by design.</p>
+            </article>
+            <article class="signal-card reveal" style="--reveal-delay: 140ms">
+              <span>APPROVE?</span>
+              <strong data-i18n="edge.approveTitle">Physical approval</strong>
+              <p data-i18n="edge.approveBody">Risky steps wait until you approve on Manta.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="cloud" class="section cloud-section">
+        <div class="cloud-layout">
+          <div class="section-head reveal">
+            <p class="eyebrow" data-i18n="cloud.eyebrow">Planetz Cloud</p>
+            <h2 data-i18n-html="cloud.titleHtml">Cloud when you need it<br />Flexible operations</h2>
+            <p class="lead narrow" data-i18n="cloud.lead">
+              Cloud is the managed edition for teams that cannot host locally. The same deck experience in the browser, with a monthly
+              discount for Manta owners.
+            </p>
+            <ul class="cloud-points">
+              <li data-i18n-html="cloud.point1">
+                <strong>Managed private node</strong> — isolated execution and always-on workflow watch
+              </li>
+              <li data-i18n-html="cloud.point2">
+                <strong>Browser control</strong> — enqueue, monitor, and recover without Manta on the desk
+              </li>
+              <li data-i18n-html="cloud.point3">
+                <strong>Data boundary</strong> — clear separation of keys and runtime for audit-friendly teams
+              </li>
+              <li data-i18n-html="cloud.point4">
+                <strong>Manta owner discount</strong> — Cloud at $30/mo for hardware buyers
+              </li>
+            </ul>
+          </div>
+
+          <div class="cloud-diagram reveal" style="--reveal-delay: 100ms" aria-hidden="true">
+            <div class="diagram-stack">
+              <div class="diagram-layer browser">Manta / Browser</div>
+              <div class="diagram-arrow">↓ HTTPS</div>
+              <div class="diagram-layer control">Planetz Cloud</div>
+              <div class="diagram-arrow">↓ secure tunnel</div>
+              <div class="diagram-layer vm">
+                <span>Managed Private Node</span>
+                <small>Agent runs · Watch · Isolation</small>
+              </div>
+              <div class="diagram-arrow">↓ git sync</div>
+              <div class="diagram-layer repo">Your Git repository</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="flow" class="section">
+        <div class="section-head reveal">
+          <p class="eyebrow" data-i18n="flow.eyebrow">How it works</p>
+          <h2 data-i18n="flow.title">Three layers: Cloud, Desktop app, and physical input</h2>
+          <p data-i18n="flow.lead">
+            Planetz on screen, local LLM on your PC, and Manta for approve-and-talk—one continuous loop for running dev agents.
+          </p>
+        </div>
+        <ol class="steps">
+          <li class="step reveal">
+            <span class="step-num">01</span>
+            <div>
+              <h3 data-i18n="flow.s1Title">Run agents from Planetz</h3>
+              <p data-i18n="flow.s1Body">
+                Open a workspace, assign agents, and decide where human approval is required. Enqueue, monitor, and retry from the app.
+              </p>
+            </div>
+          </li>
+          <li class="step reveal" style="--reveal-delay: 80ms">
+            <span class="step-num">02</span>
+            <div>
+              <h3 data-i18n="flow.s2Title">Inference on your PC</h3>
+              <p data-i18n="flow.s2Body">
+                Connect Ollama or other local LLMs. Keep confidential code and docs off the public cloud.
+              </p>
+            </div>
+          </li>
+          <li class="step reveal" style="--reveal-delay: 160ms">
+            <span class="step-num">03</span>
+            <div>
+              <h3 data-i18n="flow.s3Title">Approve and speak on Manta</h3>
+              <p data-i18n="flow.s3Body">
+                Answer “may I proceed?” with green or red buttons. Hold Talk to turn speech into a new task instruction in Planetz.
+              </p>
+            </div>
+          </li>
+          <li class="step reveal" style="--reveal-delay: 240ms">
+            <span class="step-num">04</span>
+            <div>
+              <h3 data-i18n="flow.s4Title">Scale to Cloud for teams</h3>
+              <p data-i18n="flow.s4Body">
+                Managed private environments for members who cannot run locally—shared workspaces and unified rules.
+              </p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section id="pricing" class="section pricing-section">
+        <div class="section-head reveal">
+          <p class="eyebrow" data-i18n="pricing.eyebrow">Pricing</p>
+          <h2 data-i18n="pricing.title">Plans for agent commanders</h2>
+        </div>
+        <div class="pricing-grid">
+          <article class="pricing-card reveal">
+            <p class="pricing-tier" data-i18n="pricing.mantaTier">Manta (Hardware)</p>
+            <p class="pricing-price">
+              <span class="pricing-price-was">$70</span>
+              <span class="pricing-price-now">$35</span>
+              <span data-i18n="pricing.mantaUnit">/ device</span>
+            </p>
+            <p class="pricing-desc" data-i18n="pricing.mantaDesc">
+              Galaxy-finish desktop robot. LCD, ambient light, physical approval, voice orders.
+            </p>
+            <ul>
+              <li data-i18n="pricing.mantaLi1">Approve / Deny buttons</li>
+              <li data-i18n="pricing.mantaLi2">Talk (PTT) button</li>
+              <li data-i18n="pricing.mantaLi3">Status LCD</li>
+              <li data-i18n="pricing.mantaLi4">USB-C / BLE</li>
+            </ul>
+            <a class="btn btn-primary btn-block" href="#cloud-waitlist" data-i18n="pricing.mantaCta">Join waitlist</a>
+          </article>
+          <article class="pricing-card pricing-card-featured reveal" style="--reveal-delay: 80ms">
+            <p class="pricing-badge" data-i18n="pricing.desktopBadge">Edge</p>
+            <p class="pricing-tier" data-i18n="pricing.desktopTier">Desktop</p>
+            <p class="pricing-price">
+              <span>$6</span>
+              <span data-i18n="pricing.desktopUnit">/ mo</span>
+            </p>
+            <p class="pricing-desc" data-i18n="pricing.desktopDesc">
+              Desktop subscription for local inference and Manta integration.
+            </p>
+            <ul>
+              <li data-i18n="pricing.desktopLi1">Ollama / edge inference</li>
+              <li data-i18n="pricing.desktopLi2">Manta / HID devices</li>
+              <li data-i18n="pricing.desktopLi3">Voice orders (local STT)</li>
+              <li data-i18n="pricing.desktopLi4">Advanced workflow GUI</li>
+            </ul>
+            <a
+              class="btn btn-secondary btn-block"
+              href="https://github.com/guilz-dev/planetz-release/releases/latest/download/Planetz-Agent-Deck.dmg"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-i18n="pricing.desktopCta"
+              >Download for macOS</a
+            >
+          </article>
+          <article class="pricing-card reveal" style="--reveal-delay: 160ms">
+            <p class="pricing-tier" data-i18n="pricing.cloudTier">Cloud</p>
+            <p class="pricing-price">
+              <span>$40</span>
+              <span data-i18n="pricing.cloudUnit">/ mo</span>
+            </p>
+            <p class="pricing-desc" data-i18n="pricing.cloudDesc">Managed private node. Browser Planetz for teams.</p>
+            <ul>
+              <li data-i18n="pricing.cloudLi1">Orbit / watch on cloud VM</li>
+              <li data-i18n="pricing.cloudLi2">Control runs from the browser</li>
+              <li data-i18n-html="pricing.cloudLi3"><strong>$30/mo for Manta owners</strong></li>
+              <li data-i18n="pricing.cloudLi4">Team sharing &amp; audit logs</li>
+            </ul>
+            <a class="btn btn-secondary btn-block" href="#cloud-waitlist" data-i18n="pricing.cloudCta">Join Cloud waitlist</a>
+          </article>
+        </div>
+      </section>
+
+      <section id="cloud-waitlist" class="section waitlist-section">
+        <div class="waitlist-card reveal">
+          <h2 data-i18n="waitlist.title">Early access — Manta &amp; Planetz Cloud</h2>
+          <p data-i18n="waitlist.lead">We will send Manta reservation updates and Cloud beta invites in order.</p>
+          <form class="waitlist-form" data-waitlist-form>
+            <label class="sr-only" for="email" data-i18n="waitlist.emailLabel">Email address</label>
+            <input id="email" name="email" type="email" required placeholder="you@company.com" autocomplete="email" />
+            <button class="btn btn-primary" type="submit" data-i18n="waitlist.submit">Sign up</button>
+          </form>
+          <p class="waitlist-hint" data-waitlist-msg hidden aria-live="polite"></p>
+        </div>
+      </section>
+
+      <section id="download" class="section download-section">
+        <div class="section-head reveal">
+          <p class="eyebrow" data-i18n="download.eyebrow">Free · Open source</p>
+          <h2 data-i18n="download.title">Download desktop app for free</h2>
+        </div>
+        <div class="teaser-download reveal" style="--reveal-delay: 80ms">
+          <div class="teaser-download-copy">
+            <p class="teaser-chip" data-i18n="download.freeChip">Free · OSS</p>
+            <ul class="teaser-points">
+              <li data-i18n="download.point1">Signed macOS DMG</li>
+              <li data-i18n="download.point2">MIT-licensed open source</li>
+              <li data-i18n="download.point3">Runs fully on your machine</li>
+            </ul>
+          </div>
+          <div class="teaser-download-action">
+            <a
+              class="btn btn-primary btn-lg"
+              data-teaser-download
+              href="https://github.com/guilz-dev/planetz-release/releases/latest/download/Planetz-Agent-Deck.dmg"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-i18n="download.cta"
+              >Download for macOS</a
+            >
+            <p class="teaser-note" data-i18n="download.note">
+              Signed macOS DMG on GitHub Releases — free OSS desktop build.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" class="section faq-section">
+        <div class="section-head reveal">
+          <p class="eyebrow" data-i18n="faq.eyebrow">FAQ</p>
+          <h2 data-i18n="faq.title">Questions</h2>
+        </div>
+        <dl class="faq-list">
+          <div class="faq-item reveal">
+            <dt data-i18n="faq.q1">Can I use Planetz without Manta?</dt>
+            <dd data-i18n="faq.a1">
+              Yes. Planetz Agent Deck runs as a desktop app on its own—you approve and operate from the screen. Manta is optional hardware
+              for safer, more ambient control.
+            </dd>
+          </div>
+          <div class="faq-item reveal" style="--reveal-delay: 60ms">
+            <dt data-i18n="faq.q2">Why use edge AI (Ollama)?</dt>
+            <dd data-i18n="faq.a2">
+              Privacy and security: run inference on your machine without sending source code or internal docs to external APIs. You can
+              keep working offline (e.g. airplane mode) where local models allow.
+            </dd>
+          </div>
+          <div class="faq-item reveal" style="--reveal-delay: 120ms">
+            <dt data-i18n="faq.q3">Is there a discount for hardware owners?</dt>
+            <dd data-i18n="faq.a3">Yes. Manta buyers get Planetz Cloud for $30/mo (regular $40/mo).</dd>
+          </div>
+          <div class="faq-item reveal" style="--reveal-delay: 180ms">
+            <dt data-i18n="faq.q4">What does the Manta LCD show?</dt>
+            <dd data-i18n-html="faq.a4">
+              Short status text such as <code>IDLE</code>, <code>LISTENING</code>, <code>PROCESSING...</code>, <code>APPROVE?</code>,
+              <code>ERROR</code>—plus ambient light for peripheral awareness.
+            </dd>
+          </div>
+          <div class="faq-item reveal" style="--reveal-delay: 240ms">
+            <dt data-i18n="faq.q5">How do local Deck and Cloud relate?</dt>
+            <dd data-i18n="faq.a5">
+              They share the same deck UX and workflows. Teams can start locally and move workspaces to Cloud without relearning the
+              product.
+            </dd>
+          </div>
+        </dl>
+      </section>
+
+      <section id="demo" class="section demo-section" data-teaser-section hidden>
+        <div class="section-head reveal">
+          <p class="eyebrow" data-i18n="demo.eyebrow">Product demo</p>
+          <h2 data-i18n="demo.title">The Planetz Agent Deck demo</h2>
+          <p class="lead narrow" data-i18n="demo.lead">
+            Not a mockup—a recording of the actual desktop app in action.
+          </p>
+        </div>
+        <div class="teaser-video reveal" style="--reveal-delay: 80ms">
+          <div class="teaser-video-frame">
+            <iframe
+              data-teaser-embed
+              title="Planetz Agent Deck demo video"
+              src=""
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="teaser-video-caption">
+            <span class="teaser-badge">
+              <span class="pulse" aria-hidden="true"></span>
+              <span data-i18n="demo.badge">Live app</span>
+            </span>
+            <a
+              class="teaser-watch-link"
+              data-teaser-watch
+              href="https://www.youtube.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-i18n="demo.youtubeCta"
+              >Open on YouTube →</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <p class="footer-brand">
+          <img src="/favicon.svg" width="20" height="20" alt="" />
+          Planetz Agent Deck
+        </p>
+        <p class="footer-disclaimer">
+          Planetz Agent Deck is an independent product. Orbit is the in-app name for the bundled agent runtime.
+        </p>
+        <nav class="footer-nav" data-i18n-attr="aria-label:footer.navLabel" aria-label="Footer">
+          <a href="https://github.com/guilz-dev/planetz-release" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://planetz.gitbook.io/planetz" target="_blank" rel="noopener noreferrer" data-i18n="footer.docs">Docs</a>
+          <a href="#cloud">Cloud</a>
+          <a href="#pricing" data-i18n="footer.pricing">Pricing</a>
+        </nav>
+        <p class="footer-copy">© Planetz · MIT (Deck)</p>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

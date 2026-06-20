@@ -1,0 +1,6 @@
+# Reduce retrieval noise for repo-root Semble searches.
+# Search third_party/orbit directly when bundled Orbit internals are the target.
+third_party/orbit/
+
+# Local takt runtime state is not part of the application source tree.
+.takt/

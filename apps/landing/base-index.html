@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Planetz Agent Deck — エージェント実装を見える化する操作デッキ。OSS デスクトップ版と、クラウド VM をブラウザから操作する Planetz Cloud。"
+    />
+    <title>Planetz Agent Deck — エージェント実装を、デッキで見て、クラウドで回す</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-light.svg" type="image/svg+xml" media="(prefers-color-scheme: light)" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/base-styles.css" />
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="orb orb-a" aria-hidden="true"></div>
+    <div class="orb orb-b" aria-hidden="true"></div>
+
+    <header class="site-header" data-header>
+      <a class="brand" href="#top">
+        <img class="brand-mark" src="/favicon.svg" width="28" height="28" alt="" />
+        <span class="brand-text">Planetz</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#deck">Deck</a>
+        <a href="#cloud">Cloud</a>
+        <a href="#flow">仕組み</a>
+        <a href="#pricing">料金</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="header-cta">
+        <a class="btn btn-ghost" href="https://github.com/guilz-dev/planetz-release" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a class="btn btn-primary" href="#cloud-waitlist">Cloud 先行登録</a>
+      </div>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" data-nav-toggle>
+        <span class="sr-only">メニュー</span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+    </header>
+
+    <nav id="mobile-nav" class="mobile-nav" hidden data-mobile-nav>
+      <a href="#deck">Deck</a>
+      <a href="#cloud">Cloud</a>
+      <a href="#flow">仕組み</a>
+      <a href="#pricing">料金</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn btn-primary" href="#cloud-waitlist">Cloud 先行登録</a>
+    </nav>
+
+    <main id="top">
+      <section class="hero section">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">AIハーネス・自動実行 · オープンソース</p>
+          <h1>
+            エージェント実装を<br />
+            <span class="gradient-text">見える化</span>して、<br />
+            クラウドから<span class="gradient-text">操る</span>
+          </h1>
+          <p class="lead">
+            <strong>Planetz Agent Deck</strong> はローカル向けの操作デッキ。
+            課金プラン <strong>Planetz Cloud</strong> では、クラウド上の仮想環境にワークスペースを載せ、
+            ブラウザだけでタスク投入・監視・ワークフロー修正まで行えます。
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary btn-lg" href="https://github.com/guilz-dev/planetz-release" target="_blank" rel="noopener noreferrer">
+              Deck を入手（OSS）
+            </a>
+            <a class="btn btn-secondary btn-lg" href="#cloud">Cloud を見る</a>
+          </div>
+          <ul class="hero-badges">
+            <li>デスクトップ · 同梱 Orbit</li>
+            <li>ワークフローはリポジトリと同期</li>
+            <li>API キーを SaaS に預けない</li>
+          </ul>
+        </div>
+
+        <div class="hero-visual reveal" style="--reveal-delay: 120ms">
+          <div class="split-preview">
+            <figure class="preview-card preview-local" aria-label="ローカル Deck のイメージ">
+              <figcaption>Deck（ローカル · 無料）</figcaption>
+              <div class="mock-deck">
+                <div class="mock-deck-bar">
+                  <span></span><span></span><span></span>
+                  <em>Planetz Agent Deck</em>
+                </div>
+                <div class="mock-deck-grid">
+                  <div class="mock-panel agents">
+                    <span>Agents</span>
+                    <div class="mock-agent running"></div>
+                    <div class="mock-agent idle"></div>
+                  </div>
+                  <div class="mock-panel lane">
+                    <span>Task lane</span>
+                    <div class="mock-task running"></div>
+                    <div class="mock-task pending"></div>
+                    <div class="mock-task done"></div>
+                  </div>
+                  <div class="mock-panel detail">
+                    <span>Detail</span>
+                    <div class="mock-lines"></div>
+                  </div>
+                </div>
+              </div>
+            </figure>
+            <figure class="preview-card preview-cloud" aria-label="Planetz Cloud のイメージ">
+              <figcaption>Cloud（ブラウザ · 有料）</figcaption>
+              <div class="mock-browser">
+                <div class="mock-browser-bar">
+                  <span></span><span></span><span></span>
+                  <code>cloud.planetz.dev / workspace</code>
+                </div>
+                <div class="mock-browser-body">
+                  <div class="mock-vm">
+                    <span class="mock-vm-label">VM · your-repo</span>
+                    <div class="mock-vm-orbit">Orbit · 監視中</div>
+                  </div>
+                  <div class="mock-deck compact">
+                    <div class="mock-deck-grid">
+                      <div class="mock-panel lane">
+                        <div class="mock-task running"></div>
+                        <div class="mock-task running"></div>
+                      </div>
+                      <div class="mock-panel detail">
+                        <div class="mock-lines short"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section id="deck" class="section product-split">
+        <div class="section-head reveal">
+          <p class="eyebrow">Open Source</p>
+          <h2>Planetz Agent Deck</h2>
+          <p>手元の Mac / Linux / Windows で、リポジトリ内のエージェント実装をひとつのデッキに集約します。</p>
+        </div>
+        <div class="card-grid">
+          <article class="feature-card reveal">
+            <h3>タスクレーン &amp; エージェント盤</h3>
+            <p>待機・実行中・完了をひと目で把握。エージェントごとの稼働と、タスクの流れを同じ画面で追えます。</p>
+          </article>
+          <article class="feature-card reveal" style="--reveal-delay: 60ms">
+            <h3>ワークフロー GUI</h3>
+            <p>ワークフローをフォームやフロー図で編集。保存前に検証し、壊れた設定をその場で直せます。</p>
+          </article>
+          <article class="feature-card reveal" style="--reveal-delay: 120ms">
+            <h3>Retry / Resume / Watch</h3>
+            <p>失敗した実装の再実行、ログの追跡、常時監視のオン／オフをデッキから操作できます。</p>
+          </article>
+          <article class="feature-card reveal" style="--reveal-delay: 180ms">
+            <h3>同梱 Orbit のみ</h3>
+            <p>別途 CLI を入れなくても動きます。同梱の Orbit で、チーム全員が同じ実行環境を共有できます。</p>
+          </article>
+        </div>
+        <p class="section-note reveal">
+          リポジトリは MIT 想定の OSS。ビルド・実行は
+          <a href="https://github.com/guilz-dev/planetz-release" target="_blank" rel="noopener noreferrer">guilz-dev/planetz-release</a>
+          を参照してください。
+        </p>
+      </section>
+
+      <section id="cloud" class="section cloud-section">
+        <div class="cloud-layout">
+          <div class="section-head reveal">
+            <p class="eyebrow">Planetz Cloud · サブスクリプション</p>
+            <h2>クラウドの仮想環境を、<br />ブラウザのデッキで操作</h2>
+            <p class="lead narrow">
+              ローカルに環境を構築できないメンバーでも、チーム共通の VM 上で同じワークスペースを共有。
+              実装の投入・監視・設定変更を Web から行い、成果物は Git リポジトリに残します。
+            </p>
+            <ul class="cloud-points">
+              <li>
+                <strong>マネージド VM</strong>
+                — リポジトリの clone、Orbit の常時監視、デッキ用データをクラウド側で維持
+              </li>
+              <li>
+                <strong>ブラウザコントロール</strong>
+                — Deck と同型の UI を Web で提供（タスク・ワークフロー・接続状態）
+              </li>
+              <li>
+                <strong>修正はクラウド上で</strong>
+                — ワークフローやプロジェクト設定の編集・検証を VM 内で完結
+              </li>
+              <li>
+                <strong>シークレットは VM 内</strong>
+                — デッキ方針どおり、API キーを SaaS に預けない設計を維持
+              </li>
+            </ul>
+          </div>
+
+          <div class="cloud-diagram reveal" style="--reveal-delay: 100ms" aria-hidden="true">
+            <div class="diagram-stack">
+              <div class="diagram-layer browser">Your browser</div>
+              <div class="diagram-arrow">↓ HTTPS</div>
+              <div class="diagram-layer control">Planetz Cloud · Control UI</div>
+              <div class="diagram-arrow">↓ session</div>
+              <div class="diagram-layer vm">
+                <span>Workspace VM</span>
+                <small>Orbit · 常時監視 · デッキ設定</small>
+              </div>
+              <div class="diagram-arrow">↓ git push</div>
+              <div class="diagram-layer repo">Your Git repository</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="flow" class="section">
+        <div class="section-head reveal">
+          <p class="eyebrow">How it works</p>
+          <h2>Deck 無料、<br />Cloud で「場所」を買う</h2>
+        </div>
+        <ol class="steps">
+          <li class="step reveal">
+            <span class="step-num">01</span>
+            <div>
+              <h3>Deck（OSS）でローカル検証</h3>
+              <p>手元のワークスペースを開き、タスク投入と watch の挙動を確認。チームの標準フローを固めます。</p>
+            </div>
+          </li>
+          <li class="step reveal" style="--reveal-delay: 80ms">
+            <span class="step-num">02</span>
+            <div>
+              <h3>Cloud に workspace をプロビジョン</h3>
+              <p>ブランチ / リポジトリを指定して VM を起動。Orbit がタスクを監視し、実装の実行ログを蓄積します。</p>
+            </div>
+          </li>
+          <li class="step reveal" style="--reveal-delay: 160ms">
+            <span class="step-num">03</span>
+            <div>
+              <h3>ブラウザから実装をコントロール</h3>
+              <p>プロンプト投入、ワークフロー修正、失敗タスクの retry — 操作は Cloud UI、実行は VM 内の Orbit。</p>
+            </div>
+          </li>
+          <li class="step reveal" style="--reveal-delay: 240ms">
+            <span class="step-num">04</span>
+            <div>
+              <h3>成果を Git に戻す</h3>
+              <p>ワークフローやエージェント設定の変更は VM 上で検証後、いつもどおり PR で本番リポジトリへ。</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section id="pricing" class="section pricing-section">
+        <div class="section-head reveal">
+          <p class="eyebrow">Pricing</p>
+          <h2>シンプルな二層</h2>
+        </div>
+        <div class="pricing-grid">
+          <article class="pricing-card reveal">
+            <p class="pricing-tier">Deck</p>
+            <p class="pricing-price"><span>¥0</span> / 永続</p>
+            <p class="pricing-desc">オープンソースのデスクトップアプリ。ローカル workspace 専用。</p>
+            <ul>
+              <li>Agent board · Task lane · Retry</li>
+              <li>ワークフロー編集・検証</li>
+              <li>同梱 Orbit CLI</li>
+              <li>コミュニティサポート</li>
+            </ul>
+            <a class="btn btn-secondary btn-block" href="https://github.com/guilz-dev/planetz-release" target="_blank" rel="noopener noreferrer">リポジトリを見る</a>
+          </article>
+          <article class="pricing-card pricing-card-featured reveal" style="--reveal-delay: 80ms">
+            <p class="pricing-badge">推奨</p>
+            <p class="pricing-tier">Cloud</p>
+            <p class="pricing-price">近日公開</p>
+            <p class="pricing-desc">マネージド VM + ブラウザデッキ。チームで workspace を共有。</p>
+            <ul>
+              <li>クラウド VM 上の Orbit / watch</li>
+              <li>ブラウザからの実装コントロール</li>
+              <li>ワークフロー・設定のクラウド編集</li>
+              <li>稼働時間・VM サイズに応じた課金</li>
+            </ul>
+            <a class="btn btn-primary btn-block" href="#cloud-waitlist">先行登録する</a>
+          </article>
+        </div>
+        <p class="pricing-footnote reveal">
+          Cloud の課金単位（想定）: 接続 workspace 数 · VM 稼働時間 · 同時 watch 数。
+          詳細プランはベータ時に公開します。
+        </p>
+      </section>
+
+      <section id="cloud-waitlist" class="section waitlist-section">
+        <div class="waitlist-card reveal">
+          <h2>Planetz Cloud の先行登録</h2>
+          <p>ベータ招待は順次送付します。Deck のフィードバックも歓迎です。</p>
+          <form class="waitlist-form" data-waitlist-form>
+            <label class="sr-only" for="email">メールアドレス</label>
+            <input id="email" name="email" type="email" required placeholder="you@company.com" autocomplete="email" />
+            <button class="btn btn-primary" type="submit">登録する</button>
+          </form>
+          <p class="waitlist-hint" data-waitlist-msg hidden aria-live="polite"></p>
+        </div>
+      </section>
+
+      <section id="faq" class="section faq-section">
+        <div class="section-head reveal">
+          <p class="eyebrow">FAQ</p>
+          <h2>よくある質問</h2>
+        </div>
+        <dl class="faq-list">
+          <div class="faq-item reveal">
+            <dt>他のプロダクトとどう違うのですか？</dt>
+            <dd>
+              多くのマルチエージェント製品は、IDE やクラウド上の
+              <strong>セッション管理と実行状況の可視化</strong>が中心です。Planetz Agent Deck はそれに加えて、
+              <strong>投入・監視・失敗時の再実行・設定変更までの運用一式</strong>を、同じ画面で完結できるように設計しています。
+              実行は内部のハーネス／オーケストレーターが担当し、変更はワークスペース内で Git に残ります。
+              API キーは SaaS ではなく VM / ローカルに保持する前提のため、運用とデータ管理の主導権をチーム側に置けます。
+            </dd>
+          </div>
+          <div class="faq-item reveal" style="--reveal-delay: 60ms">
+            <dt>Planetz とは何ですか？</dt>
+            <dd>
+              エージェント実装の「司令室」です。タスクの投入・進捗・失敗対応をデッキ UI に集約し、
+              裏側では同梱の Orbit がワークスペースを実行します。Planetz 単体の製品として提供しています。
+            </dd>
+          </div>
+          <div class="faq-item reveal" style="--reveal-delay: 120ms">
+            <dt>Deck だけ使う場合、課金は必要ですか？</dt>
+            <dd>不要です。Deck は OSS としてローカル利用を想定しています。Cloud は任意のサブスクリプションです。</dd>
+          </div>
+          <div class="faq-item reveal" style="--reveal-delay: 180ms">
+            <dt>Cloud で何が「修正」できますか？</dt>
+            <dd>
+              タスクの投入、ワークフロー・プロジェクト設定の変更、失敗時のやり直しなど、Deck と同等の操作をブラウザから行う想定です。
+              編集と検証は VM 内で完結し、変更はリポジトリに残ります。
+            </dd>
+          </div>
+          <div class="faq-item reveal" style="--reveal-delay: 240ms">
+            <dt>ローカル Deck と Cloud の関係は？</dt>
+            <dd>
+              同じ操作画面と手順を共有します。ローカルで慣れたチームが、そのまま Cloud 上の workspace に移行できることを目指しています。
+            </dd>
+          </div>
+        </dl>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <p class="footer-brand">
+          <img src="/favicon.svg" width="20" height="20" alt="" />
+          Planetz Agent Deck
+        </p>
+        <p class="footer-disclaimer">
+          Planetz Agent Deck is an independent product. Orbit is the in-app name for the bundled agent runtime.
+        </p>
+        <nav class="footer-nav" aria-label="Footer">
+          <a href="https://github.com/guilz-dev/planetz-release" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://planetz.gitbook.io/planetz" target="_blank" rel="noopener noreferrer">ドキュメント</a>
+          <a href="#cloud">Cloud</a>
+          <a href="#pricing">料金</a>
+        </nav>
+        <p class="footer-copy">© Planetz · MIT (Deck)</p>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/base-main.js"></script>
+  </body>
+</html>

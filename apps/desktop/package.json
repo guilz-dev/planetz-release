@@ -1,0 +1,117 @@
+{
+  "name": "@planetz/desktop",
+  "version": "0.1.0",
+  "private": true,
+  "main": "./out/main/index.js",
+  "build": {
+    "appId": "dev.guilz.planetz",
+    "productName": "Planetz Agent Deck",
+    "npmRebuild": false,
+    "directories": {
+      "buildResources": "resources",
+      "output": "release/${version}"
+    },
+    "files": [
+      "out/**/*",
+      "package.json"
+    ],
+    "afterSign": "scripts/notarize-mac.mjs",
+    "mac": {
+      "icon": "resources/icon.icns",
+      "hardenedRuntime": true,
+      "target": [
+        "dmg"
+      ],
+      "category": "public.app-category.developer-tools",
+      "entitlements": "build/entitlements.mac.plist",
+      "entitlementsInherit": "build/entitlements.mac.inherit.plist"
+    },
+    "dmg": {
+      "artifactName": "Planetz-Agent-Deck.${ext}"
+    },
+    "win": {
+      "icon": "resources/icon.png"
+    },
+    "linux": {
+      "icon": "resources/icon.png"
+    },
+    "extraResources": [
+      {
+        "from": "resources/orbit",
+        "to": "orbit",
+        "filter": [
+          "**/*"
+        ]
+      },
+      {
+        "from": "resources/composer-orbit-llm-runner.mjs",
+        "to": "composer-orbit-llm-runner.mjs"
+      },
+      {
+        "from": "resources/orbit-interactive-session-runner.mjs",
+        "to": "orbit-interactive-session-runner.mjs"
+      },
+      {
+        "from": "resources/licenses",
+        "to": "licenses",
+        "filter": [
+          "**/*"
+        ]
+      },
+      {
+        "from": "resources/node",
+        "to": "node",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ]
+  },
+  "scripts": {
+    "dev": "bash ../../scripts/dev-desktop.sh",
+    "build": "electron-vite build",
+    "build:icon-icns": "bash ../../scripts/build-desktop-icon-icns.sh",
+    "dist:mac": "electron-builder --mac",
+    "dist:mac:dir": "electron-builder --mac --dir",
+    "package:mac": "pnpm run build && pnpm run dist:mac",
+    "preview": "env -u ELECTRON_RUN_AS_NODE electron-vite preview",
+    "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.web.json",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "test:e2e": "bash ../../scripts/test-desktop-e2e.sh"
+  },
+  "dependencies": {
+    "@planetz/shared": "workspace:*",
+    "execa": "9.6.0",
+    "@github/copilot-sdk": "1.0.0-beta.12",
+    "fastify": "5.6.1",
+    "lucide-react": "0.511.0",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-window": "1.8.11",
+    "yaml": "2.8.2",
+    "zod": "4.4.3",
+    "zustand": "5.0.13"
+  },
+  "devDependencies": {
+    "@electron/notarize": "3.1.1",
+    "@testing-library/react": "16.3.0",
+    "@types/node": "22.15.29",
+    "@tailwindcss/vite": "4.1.8",
+    "@types/react": "19.1.6",
+    "@types/react-dom": "19.1.5",
+    "@types/react-window": "1.8.8",
+    "@vitejs/plugin-react": "4.5.2",
+    "electron": "41.7.0",
+    "electron-builder": "26.15.3",
+    "electron-vite": "4.0.1",
+    "jsdom": "26.1.0",
+    "tailwindcss": "4.1.8",
+    "typescript": "5.9.3",
+    "vite": "7.3.3",
+    "@vitest/coverage-v8": "3.2.4",
+    "vitest": "3.2.4",
+    "@playwright/test": "1.51.1",
+    "playwright": "1.51.1"
+  }
+}

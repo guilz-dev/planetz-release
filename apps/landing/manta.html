@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Manta desktop robot specifications: status LCD, ambient light, Approve/Deny, Talk (PTT), connectivity, and state language for AI agent workflows."
+    />
+    <title>Manta — Specifications | Planetz</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-light.svg" type="image/svg+xml" media="(prefers-color-scheme: light)" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body class="spec-page-body">
+    <div class="grain" aria-hidden="true"></div>
+    <div class="orb orb-a" aria-hidden="true"></div>
+    <div class="orb orb-b" aria-hidden="true"></div>
+
+    <header class="site-header" data-header>
+      <a class="brand" href="/">
+        <img class="brand-mark" src="/favicon.svg" width="28" height="28" alt="" />
+        <span class="brand-text">Planetz</span>
+      </a>
+      <nav class="nav nav--spec" data-i18n-attr="aria-label:nav.label" aria-label="Primary">
+        <a href="/" data-i18n="specsNav.backHome">Planetz home</a>
+        <a href="/#pricing" data-i18n="specsNav.pricing">Pricing</a>
+      </nav>
+      <div class="header-cta">
+        <div class="lang-switch" role="group" data-i18n-attr="aria-label:lang.label" aria-label="Language">
+          <button type="button" class="lang-switch-btn is-active" data-locale="en" aria-pressed="true" data-i18n="lang.en">EN</button>
+          <button type="button" class="lang-switch-btn" data-locale="ja" aria-pressed="false" data-i18n="lang.ja">JA</button>
+        </div>
+        <a class="btn btn-primary" href="/#pricing" data-i18n="specs.ctaReserve">Reserve Manta</a>
+      </div>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" data-nav-toggle>
+        <span class="sr-only" data-i18n="nav.menu">Menu</span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+    </header>
+
+    <nav id="mobile-nav" class="mobile-nav" hidden data-mobile-nav>
+      <div class="lang-switch lang-switch--mobile" role="group" data-i18n-attr="aria-label:lang.label" aria-label="Language">
+        <button type="button" class="lang-switch-btn is-active" data-locale="en" aria-pressed="true" data-i18n="lang.en">EN</button>
+        <button type="button" class="lang-switch-btn" data-locale="ja" aria-pressed="false" data-i18n="lang.ja">JA</button>
+      </div>
+      <a href="/" data-i18n="specsNav.backHome">Planetz home</a>
+      <a href="/#pricing" data-i18n="specsNav.pricing">Pricing</a>
+      <a class="btn btn-primary" href="/#pricing" data-i18n="specs.ctaReserve">Reserve Manta</a>
+    </nav>
+
+    <main class="spec-page">
+      <section class="section spec-hero spec-hero--intro">
+        <div class="spec-hero-copy reveal">
+          <p class="eyebrow" data-i18n="specs.eyebrow">Reference hardware</p>
+          <h1 data-i18n="specs.title">Manta specifications</h1>
+          <p class="lead" data-i18n="specs.lead">
+            Final concept device for Planetz Agent Deck. Palm-rest form factor with galaxy finish—physical approve/deny, voice
+            orders, and ambient status without living on your main monitor.
+          </p>
+          <p class="spec-hero-links">
+            <a class="text-link" href="/" data-i18n="specs.ctaHome">Back to Planetz home</a>
+            <a class="btn btn-primary" href="/#pricing" data-i18n="specs.ctaReserve">Reserve Manta</a>
+          </p>
+        </div>
+      </section>
+
+      <section class="section spec-diagram" aria-labelledby="spec-diagram-title">
+        <div class="section-head reveal">
+          <h2 id="spec-diagram-title" data-i18n="specs.diagramTitle">Physical controls</h2>
+          <p data-i18n="specs.diagramLead">Approve and Deny are dedicated buttons on the left wing—one thumb, clear intent.</p>
+        </div>
+        <div class="spec-device-gallery">
+          <figure class="spec-device-frame reveal">
+            <figcaption class="spec-device-caption spec-device-caption--top" data-i18n="specs.frontCaption">Top view</figcaption>
+            <div
+              class="manta-hero-img spec-device-img"
+              role="img"
+              data-i18n-attr="aria-label:specs.imageAlt"
+              aria-label="Manta — final concept desktop robot with status LCD"
+            ></div>
+            <svg class="spec-anno-lines" viewBox="0 0 1644 982" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+              <line class="spec-anno-line spec-anno-line--approve" x1="220" y1="498" x2="392" y2="534" />
+              <circle class="spec-anno-dot spec-anno-dot--approve" cx="392" cy="534" r="8" />
+              <line class="spec-anno-line spec-anno-line--deny" x1="220" y1="628" x2="392" y2="602" />
+              <circle class="spec-anno-dot spec-anno-dot--deny" cx="392" cy="602" r="8" />
+              <line class="spec-anno-line spec-anno-line--talk" x1="218" y1="298" x2="348" y2="408" />
+              <circle class="spec-anno-dot spec-anno-dot--talk" cx="348" cy="408" r="8" />
+              <line class="spec-anno-line spec-anno-line--lcd" x1="1240" y1="368" x2="818" y2="458" />
+              <circle class="spec-anno-dot spec-anno-dot--lcd" cx="818" cy="458" r="8" />
+            </svg>
+            <div class="spec-anno-labels" aria-hidden="true">
+              <div class="spec-anno-callout spec-anno-callout--talk">
+                <span class="spec-anno-kicker" data-i18n="specs.annotTalkKicker">Talk</span>
+                <strong data-i18n="specs.annotTalkTitle">Hold to talk</strong>
+                <p data-i18n="specs.annotTalkBody">
+                  Hold to speak. Speech is transcribed on your PC and sent to Planetz as the next instruction.
+                </p>
+              </div>
+              <div class="spec-anno-callout spec-anno-callout--lcd">
+                <span class="spec-anno-kicker" data-i18n="specs.annotLcdKicker">Status LCD</span>
+                <strong data-i18n="specs.annotLcdTitle">Center display</strong>
+                <p data-i18n-html="specs.annotLcdBody">
+                  Short status text—<code>PROCESSING…</code>, <code>APPROVE?</code>, <code>ERROR</code>—without switching monitors.
+                </p>
+              </div>
+              <div class="spec-anno-callout spec-anno-callout--approve">
+                <span class="spec-anno-kicker" data-i18n="specs.annotApproveKicker">Approve</span>
+                <strong data-i18n="specs.annotApproveTitle">Green ✓</strong>
+                <p data-i18n="specs.annotApproveBody">Confirm the agent may proceed—deploy, merge, send.</p>
+              </div>
+              <div class="spec-anno-callout spec-anno-callout--deny">
+                <span class="spec-anno-kicker" data-i18n="specs.annotDenyKicker">Deny</span>
+                <strong data-i18n="specs.annotDenyTitle">Red ✗</strong>
+                <p data-i18n="specs.annotDenyBody">Stop or reject a risky step with a clear physical action.</p>
+              </div>
+            </div>
+          </figure>
+
+          <figure class="spec-device-frame spec-device-frame--rear reveal" style="--reveal-delay: 80ms">
+            <figcaption class="spec-device-caption spec-device-caption--top" data-i18n="specs.rearCaption">Underside</figcaption>
+            <div
+              class="spec-device-img spec-device-img--rear"
+              role="img"
+              data-i18n-attr="aria-label:specs.imageRearAlt"
+              aria-label="Manta underside — PLANETZ CONSOLE M-1"
+            ></div>
+            <p class="spec-device-note" data-i18n="specs.rearLead">
+              Low-profile skates, optical sensor, and regulatory labeling. Reference model: CONSOLE M-1.
+            </p>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section spec-block">
+        <div class="section-head reveal">
+          <h2 data-i18n="specs.partsTitle">Controls &amp; surfaces</h2>
+        </div>
+        <div class="spec-table-wrap reveal">
+          <table class="spec-table">
+            <thead>
+              <tr>
+                <th scope="col" data-i18n="specs.colPart">Part</th>
+                <th scope="col" data-i18n="specs.colRole">Role</th>
+                <th scope="col" data-i18n="specs.colExperience">Experience</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" data-i18n="specs.partLcdName">Status LCD (center)</th>
+                <td data-i18n="specs.partLcdRole">Short text/icons for current state.</td>
+                <td data-i18n="specs.partLcdExp">Glance at Manta to know what the squad is doing.</td>
+              </tr>
+              <tr>
+                <th scope="row" data-i18n="specs.partLightName">Ambient ring (cyan edge)</th>
+                <td data-i18n="specs.partLightRole">Color and pulse encode state in peripheral vision.</td>
+                <td data-i18n="specs.partLightExp">Feel squad motion before you touch the device.</td>
+              </tr>
+              <tr>
+                <th scope="row" data-i18n="specs.partApproveName">Approve (green ✓)</th>
+                <td data-i18n="specs.partApproveRole">Confirm proceed.</td>
+                <td data-i18n="specs.partApproveExp">One thumb when the agent asks.</td>
+              </tr>
+              <tr>
+                <th scope="row" data-i18n="specs.partDenyName">Deny (red ✗)</th>
+                <td data-i18n="specs.partDenyRole">Reject or stop.</td>
+                <td data-i18n="specs.partDenyExp">Clear intent for risky operations.</td>
+              </tr>
+              <tr>
+                <th scope="row" data-i18n="specs.partTalkName">Talk (PTT mic)</th>
+                <td data-i18n="specs.partTalkRole">Hold to speak; host STT → Planetz instructions.</td>
+                <td data-i18n="specs.partTalkExp">Skip long typing for orders.</td>
+              </tr>
+              <tr>
+                <th scope="row" data-i18n="specs.partDialName">Side dial (textured)</th>
+                <td data-i18n="specs.partDialRole">Scroll diffs / switch sessions.</td>
+                <td data-i18n="specs.partDialExp">Rotate through parallel work.</td>
+              </tr>
+              <tr>
+                <th scope="row" data-i18n="specs.partFinishName">Galaxy finish + Planetz mark</th>
+                <td data-i18n="specs.partFinishRole">Brand and product story on the desk.</td>
+                <td data-i18n="specs.partFinishExp">Command from your palm.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section spec-block">
+        <div class="section-head reveal">
+          <h2 data-i18n="specs.statusTitle">LCD text × ambient light</h2>
+        </div>
+        <div class="spec-table-wrap reveal" style="--reveal-delay: 60ms">
+          <table class="spec-table spec-table--status">
+            <thead>
+              <tr>
+                <th scope="col" data-i18n="specs.colState">State</th>
+                <th scope="col" data-i18n="specs.colLcd">LCD</th>
+                <th scope="col" data-i18n="specs.colLight">Light</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" data-i18n="specs.stateIdle">Idle</th>
+                <td><code data-i18n="specs.lcdIdle">IDLE</code></td>
+                <td data-i18n="specs.lightIdle">Slow cyan breathe</td>
+              </tr>
+              <tr>
+                <th scope="row" data-i18n="specs.stateListen">Listening</th>
+                <td><code data-i18n="specs.lcdListen">LISTENING</code></td>
+                <td data-i18n="specs.lightListen">Cyan solid</td>
+              </tr>
+              <tr>
+                <th scope="row" data-i18n="specs.stateRun">Running</th>
+                <td><code data-i18n="specs.lcdRun">PROCESSING…</code></td>
+                <td data-i18n="specs.lightRun">Fast cyan breathe</td>
+              </tr>
+              <tr>
+                <th scope="row" data-i18n="specs.stateApproveSafe">Approval (routine)</th>
+                <td><code data-i18n="specs.lcdApproveSafe">APPROVE?</code></td>
+                <td data-i18n="specs.lightApproveSafe">Green pulse</td>
+              </tr>
+              <tr>
+                <th scope="row" data-i18n="specs.stateApproveCare">Approval (review)</th>
+                <td><code data-i18n="specs.lcdApproveCare">REVIEW &amp; APPROVE?</code></td>
+                <td data-i18n="specs.lightApproveCare">Orange pulse</td>
+              </tr>
+              <tr>
+                <th scope="row" data-i18n="specs.stateError">Danger / error</th>
+                <td><code data-i18n="specs.lcdError">ERROR / BLOCKED</code></td>
+                <td data-i18n="specs.lightError">Red blink</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section spec-block spec-connect">
+        <div class="spec-connect-grid reveal">
+          <div>
+            <h2 data-i18n="specs.connectTitle">Connectivity &amp; stack</h2>
+            <p data-i18n="specs.connectBody">
+              Heavy inference runs on your PC (Ollama, etc.). Manta is an I/O appliance over USB-C or BLE.
+            </p>
+            <ul class="spec-list">
+              <li data-i18n="specs.connectLi1">USB-C (bus power) — primary</li>
+              <li data-i18n="specs.connectLi2">BLE — optional wireless desk setup</li>
+              <li data-i18n="specs.connectLi3">HID approve/reject — driverless</li>
+              <li data-i18n="specs.connectLi4">Host app — Planetz Agent Deck (desktop)</li>
+            </ul>
+          </div>
+          <aside class="spec-pricing-card">
+            <h3 data-i18n="specs.pricingTitle">Pricing</h3>
+            <p data-i18n-html="specs.pricingBody">
+              Launch pricing: <s>$70</s> <strong>$35</strong> device · Cloud $40/mo (<strong>$30/mo</strong> for Manta owners).
+            </p>
+            <a class="btn btn-primary btn-block" href="/#cloud-waitlist" data-i18n="specs.ctaReserve">Reserve Manta</a>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <p class="footer-brand">
+          <img src="/favicon.svg" width="20" height="20" alt="" />
+          Planetz · Manta
+        </p>
+        <p class="footer-disclaimer">
+          Reference concept specifications. Final production units may differ.
+        </p>
+        <nav class="footer-nav" data-i18n-attr="aria-label:footer.navLabel" aria-label="Footer">
+          <a href="/" data-i18n="specs.ctaHome">Planetz home</a>
+          <a href="/#pricing" data-i18n="specsNav.pricing">Pricing</a>
+        </nav>
+        <p class="footer-copy">© Planetz</p>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

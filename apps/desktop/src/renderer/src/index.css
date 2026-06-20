@@ -1,0 +1,201 @@
+@import "tailwindcss";
+@source "./**/*";
+
+/*
+ * Catppuccin Macchiato — mirrored from Guilz dashboard dark theme.
+ * Upstream: https://github.com/catppuccin/palette · macchiato.colors
+ * Guilz reference: apps/web/src/lib/dashboard/dashboard-catppuccin-macchiato-vars.ts
+ *
+ * Task status colors stay independent so running/completed/failed/exceeded
+ * remain distinguishable from the mauve primary.
+ */
+@theme {
+  --font-ui: "Barlow", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* === Catppuccin Macchiato palette === */
+  --color-cat-base: #24273a;
+  --color-cat-mantle: #1e2030;
+  --color-cat-crust: #181926;
+  --color-cat-deep-surface: #202539;
+  --color-cat-sidebar-panel: #1e2134;
+  --color-cat-panel: #34364b;
+  --color-cat-surface0: #363a4f;
+  --color-cat-surface1: #494d64;
+  --color-cat-surface2: #5b6078;
+  --color-cat-overlay0: #6e738d;
+  --color-cat-text: #cad3f5;
+  --color-cat-subtext0: #a5adcb;
+  --color-cat-mauve: #c6a0f6;
+  --color-cat-red: #ed8796;
+  --color-cat-pink: #f5bde6;
+  --color-cat-lavender: #b7bdf8;
+  --color-cat-blue: #8aadf4;
+  --color-cat-sky: #91d7e3;
+  --color-cat-teal: #8bd5ca;
+  --color-cat-peach: #f5a97f;
+  --color-cat-yellow: #eed49f;
+  --color-cat-green: #a6da95;
+
+  /* === shadcn semantic tokens (mirrors Guilz dashboard mapping) === */
+  --color-background: var(--color-cat-base);
+  --color-foreground: var(--color-cat-text);
+  --color-card: var(--color-cat-deep-surface);
+  --color-card-foreground: var(--color-cat-text);
+  --color-popover: var(--color-cat-panel);
+  --color-popover-foreground: var(--color-cat-text);
+  --color-primary: var(--color-cat-mauve);
+  --color-primary-foreground: var(--color-cat-crust);
+  --color-secondary: var(--color-cat-panel);
+  --color-secondary-foreground: var(--color-cat-text);
+  --color-destructive: var(--color-cat-red);
+  --color-destructive-foreground: var(--color-cat-crust);
+  --color-alert: var(--color-cat-pink);
+  --color-alert-foreground: var(--color-cat-crust);
+  --color-success: var(--color-cat-green);
+  --color-success-foreground: var(--color-cat-crust);
+  --color-input: var(--color-cat-panel);
+
+  /* === Aliases used by Planetz Agent Deck components === */
+  --color-surface: var(--color-cat-base);
+  --color-surface-elevated: var(--color-cat-deep-surface);
+  --color-panel: var(--color-cat-deep-surface);
+  --color-panel-strong: var(--color-cat-panel);
+  --color-overlay: rgb(24 25 38 / 0.78);
+
+  --color-border: var(--color-cat-panel);
+  --color-border-strong: var(--color-cat-surface1);
+  --color-ring: var(--color-cat-lavender);
+
+  --color-text: var(--color-cat-text);
+  --color-text-strong: #ffffff;
+  --color-muted: var(--color-cat-subtext0);
+  --color-muted-strong: var(--color-cat-text);
+
+  /* Brand accent — mauve (matches Guilz primary). */
+  --color-accent: var(--color-cat-mauve);
+  --color-accent-soft: rgb(198 160 246 / 0.16);
+  --color-accent-foreground: var(--color-cat-crust);
+
+  /* Sidebar tokens (kept for parity with Guilz tokens) */
+  --color-sidebar: var(--color-cat-sidebar-panel);
+  --color-sidebar-foreground: var(--color-cat-text);
+  --color-sidebar-border: var(--color-cat-panel);
+
+  /* === Task / agent status (independent from accent for legibility) === */
+  --color-status-pending: var(--color-cat-overlay0);
+  --color-status-pending-soft: rgb(110 115 141 / 0.18);
+  --color-status-running: var(--color-cat-sky);
+  --color-status-running-soft: rgb(145 215 227 / 0.18);
+  --color-status-stopped: var(--color-cat-yellow);
+  --color-status-stopped-soft: rgb(238 212 159 / 0.16);
+  --color-status-completed: var(--color-cat-green);
+  --color-status-completed-soft: rgb(166 218 149 / 0.16);
+  --color-status-failed: var(--color-cat-red);
+  --color-status-failed-soft: rgb(237 135 150 / 0.18);
+  --color-status-exceeded: var(--color-cat-peach);
+  --color-status-exceeded-soft: rgb(245 169 127 / 0.18);
+
+  /* Legacy aliases */
+  --color-warning: var(--color-status-exceeded);
+  --color-danger: var(--color-status-failed);
+
+  /* Skin tokens (default reuses the Guilz tokens above) */
+  --skin-accent: var(--color-accent);
+  --skin-surface: var(--color-panel);
+
+  /* Radius — Guilz dashboard runs ≈ 0. Keep small radius for inputs. */
+  --radius: 0.25rem;
+  --radius-sm: 0.125rem;
+  --radius-md: 0.25rem;
+  --radius-lg: 0.375rem;
+  --radius-xl: 0.5rem;
+  --radius-2xl: 0.625rem;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  font-family: var(--font-ui);
+  background: var(--color-background);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Native controls use OS accent unless overridden; follow skin --color-accent (Macchiato: mauve). */
+input[type="checkbox"],
+input[type="radio"] {
+  accent-color: var(--color-accent);
+}
+
+/*
+ * Focus indication — generic catch-all for focusables that don't opt into a
+ * `focus-ring`/`focus:outline-none` of their own (buttons, links, pills…).
+ *
+ * MUST live in @layer base: an unlayered rule would outrank Tailwind's
+ * `focus:outline-none` (utilities layer) and leak this outline onto controls
+ * that explicitly suppress it — e.g. the borderless chat composer textarea.
+ * Inside `base`, utilities win, so opt-outs and `focus-ring` override it.
+ */
+@layer base {
+  *:focus-visible {
+    outline: 2px solid color-mix(in oklab, var(--color-ring) 40%, transparent);
+    outline-offset: 1px;
+  }
+}
+
+/*
+ * Form-control focus ring (inputs, selects, textareas, comboboxes). Replaces
+ * the old `focus:border-ring + focus:ring-2` recipe that stacked a full-opacity
+ * border under a ring (the "double line"). Here the border tints softly and a
+ * single low-opacity 3px ring sits flush against it — one cohesive glow.
+ *
+ * Uses :focus-visible so a plain mouse click on a <select> stays quiet, while
+ * keyboard navigation and text fields still surface a clear ring.
+ */
+@utility focus-ring {
+  &:focus-visible {
+    outline: none;
+    /* Focus emphasis = a border in the same hue as the accent, toned toward
+       the theme background (a darker / muted shade) so it reads as "same
+       colour family" instead of the loud full-saturation ring. Mixing against
+       --color-background means it darkens on dark skins and lightens on light
+       ones automatically. No-op on borderless controls (select/panel). */
+    border-color: color-mix(in oklab, var(--color-ring) 55%, var(--color-background));
+    box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-ring) 5%, transparent);
+  }
+}
+
+/* Inset variant for segmented controls where an outset ring would clip. */
+@utility focus-ring-inset {
+  &:focus-visible {
+    outline: none;
+    box-shadow: inset 0 0 0 2px color-mix(in oklab, var(--color-ring) 5%, transparent);
+  }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgb(202 211 245 / 0.18);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(202 211 245 / 0.32);
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}

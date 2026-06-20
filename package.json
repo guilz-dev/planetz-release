@@ -1,0 +1,47 @@
+{
+  "name": "planetz",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24 <25",
+    "pnpm": ">=10 <11"
+  },
+  "packageManager": "pnpm@10.29.3",
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "electron",
+      "@tailwindcss/oxide",
+      "esbuild"
+    ]
+  },
+  "scripts": {
+    "sync:bundled-assets": "node scripts/sync-bundled-assets.mjs",
+    "ensure:bundled-orbit": "bash scripts/ensure-bundled-orbit.sh",
+    "prepare:bundled-orbit": "bash scripts/prepare-bundled-orbit.sh",
+    "debug:bundled-orbit": "node scripts/debug-bundled-orbit.mjs",
+    "verify:bundled-assets": "node scripts/verify-bundled-assets.mjs",
+    "verify:orbit-contract": "node scripts/verify-orbit-contract.mjs",
+    "check:sqlite-compat": "node scripts/check-sqlite-electron-compat.mjs",
+    "dev": "bash scripts/dev-desktop.sh",
+    "dev:clean": "bash scripts/dev-clean.sh",
+    "build": "pnpm -r build",
+    "lint": "biome check apps packages scripts",
+    "lint:fix": "biome check --write apps packages scripts",
+    "verify:node": "node scripts/verify-node.mjs",
+    "test": "pnpm -r test",
+    "test:coverage": "pnpm --filter @planetz/shared --filter @planetz/desktop test:coverage",
+    "typecheck": "pnpm -r typecheck",
+    "check:skin": "node scripts/check-skin-terms.mjs",
+    "check:security-dom": "node scripts/check-dangerous-dom-apis.mjs",
+    "check:bridge": "node scripts/check-bridge-sync.mjs",
+    "audit:ci": "node scripts/audit-dependencies.mjs",
+    "audit:ci:strict": "PLANETZ_AUDIT_LEVEL=high node scripts/audit-dependencies.mjs",
+    "dev:landing": "pnpm --filter @planetz/landing dev",
+    "package:desktop:mac": "bash scripts/package-desktop-mac.sh",
+    "package:desktop:mac:dir": "bash scripts/package-desktop-mac.sh --dir"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.4.15",
+    "typescript": "5.9.3"
+  }
+}

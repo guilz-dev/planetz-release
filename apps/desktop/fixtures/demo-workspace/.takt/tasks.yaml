@@ -1,0 +1,3 @@
+tasks:
+  - id: demo-seed
+    title: Demo seed task

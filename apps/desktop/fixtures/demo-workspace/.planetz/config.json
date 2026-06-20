@@ -1,0 +1,16 @@
+{
+  "taktCliPath": "takt",
+  "taktConfigPath": ".takt/config.yaml",
+  "workflowsDir": ".takt/workflows",
+  "facetsDir": ".takt/facets",
+  "tasksYamlPath": ".takt/tasks.yaml",
+  "tasksDir": ".takt/tasks",
+  "runsDir": ".takt/runs",
+  "watch": {
+    "autoStart": true
+  },
+  "ui": {
+    "skin": "default",
+    "laneSpeed": "normal"
+  }
+}
