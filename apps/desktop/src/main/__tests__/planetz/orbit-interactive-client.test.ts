@@ -25,12 +25,13 @@ vi.mock('../../lib/orbit-child-runner.js', () => ({
   buildOrbitChildRunnerEnv: (
     _binary: string,
     extras: Record<string, string | undefined>,
-  ): Record<string, string> => ({
-    ...process.env,
-    ...Object.fromEntries(
-      Object.entries(extras).filter((entry): entry is [string, string] => entry[1] !== undefined),
-    ),
-  }),
+  ): Record<string, string> => {
+    const env: Record<string, string> = { NODE_ENV: 'test' }
+    for (const [key, value] of Object.entries(extras)) {
+      if (value !== undefined) env[key] = value
+    }
+    return env
+  },
   traceOrbitChildRunnerSpawn: () => {},
 }))
 
