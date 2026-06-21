@@ -42,7 +42,7 @@ Planetz は「ミスが決して起きない」とは約束しません——ど
 
 ### Planetz はオープンソースですか？
 
-試せるオープンソースのビルドがあります。GitHub 上のプロジェクトを参照してください（製品およびランディングページからリンク）。
+試せるオープンソースのビルドがあります。[planetz-release（GitHub）](https://github.com/guilz-dev/planetz-release) を参照してください。
 
 ## それでも詰まったら
 

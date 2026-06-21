@@ -42,7 +42,7 @@ The opposite. The smarter a model gets, the **more it decides silently on your b
 
 ### Is Planetz open source?
 
-There's an open-source build you can try. See the project on GitHub (linked from the product and landing page).
+There's an open-source build you can try. See [planetz-release on GitHub](https://github.com/guilz-dev/planetz-release).
 
 ## Still stuck?
 

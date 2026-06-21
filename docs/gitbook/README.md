@@ -2,9 +2,9 @@
 
 **Edge AI and a desktop robot, delivering a state-of-the-art development experience — all on your own machine.**
 
-> ⭐ **Open source.** The Planetz desktop app is developed in the open and published on GitHub.
+> **Open source.** The Planetz desktop app is developed in the open and published on [GitHub](https://github.com/guilz-dev/planetz-release).
 
-> 🌐 日本語版は [`ja/`](ja/README.md) にあります（English is the primary edition）.
+> 🌐 [日本語版](https://planetz.gitbook.io/planetz/ja) にあります（English is the primary edition）.
 
 Planetz is a desktop command center for a whole [squad of AI coding agents](concepts/multi-agent.md). You queue real work as **tasks** and direct the fleet from a single [deck](product/task-deck.md) while it runs in parallel — every agent on the same governed loop, on hardware you control.
 
