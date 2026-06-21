@@ -1,0 +1,29 @@
+title = "planetz gitleaks config"
+
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Cursor belay audit logs (session tooling; not product secrets)"
+paths = [
+  '''\.cursor/belay/''',
+]
+
+[[allowlists]]
+description = "Renderer localStorage key identifiers (not API secrets)"
+paths = [
+  '''apps/desktop/src/renderer/src/store/app-store\.ts''',
+]
+
+[[allowlists]]
+description = "Secret redaction unit tests with documented example tokens"
+paths = [
+  '''packages/shared/src/__tests__/redact-secrets\.test\.ts''',
+  '''apps/desktop/src/main/session/__tests__/conversation-artifact-source-context\.test\.ts''',
+]
+
+[[allowlists]]
+description = "OSS release verifier uses pattern names only"
+paths = [
+  '''scripts/verify-oss-release\.mjs''',
+]
