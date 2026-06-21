@@ -1,8 +1,15 @@
 # Planetz Agent Deck
 
-Desktop agent operations deck for [takt](https://github.com/nrslib/takt) workspaces (harness shown in-app as **orbit**).
+Planetz Agent Deck is a desktop app for monitoring and operating AI task workflows in a workspace.
 
-**Planetz Agent Deck** is an independent Planetz project. It is **not** affiliated with, endorsed by, or maintained by the [takt](https://github.com/nrslib/takt) authors or repository.
+It gives you a single control surface to:
+
+- inspect task state and execution progress
+- queue and run work from the desktop UI
+- review conversation history, execution logs, and summaries
+- manage project-local workflows, facets, and engine settings
+
+Planetz stores product-owned state under **`.planetz/orbit/`** in the workspace you open. The in-app harness is shown as **orbit**.
 
 ## Download (macOS)
 
@@ -57,3 +64,11 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
 ## License
 
 See [LICENSE](LICENSE). Third-party notices: [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+
+## Relationship to takt
+
+[takt](https://github.com/nrslib/takt) strongly influenced this project and provides the underlying execution engine used by Planetz.
+
+**Planetz Agent Deck** is an independent Planetz project. It is **not** affiliated with, endorsed by, or maintained by the [takt](https://github.com/nrslib/takt) authors or repository. Any issues with this app belong here, not upstream takt.
+
+Planetz adopts takt's core ideas at the center of the product. In the UI, that harness is shown as **orbit**. Bundled takt runs in a separate isolated repo under app user data so your normal `takt` CLI and `~/.takt` on the same folder are not shared with Planetz execution data.
