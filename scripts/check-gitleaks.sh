@@ -21,7 +21,7 @@ resolve_os() {
 resolve_arch() {
   case "$(uname -m)" in
     arm64 | aarch64) echo arm64 ;;
-    x86_64 | amd64) echo x86_64 ;;
+    x86_64 | amd64) echo x64 ;;
     *)
       echo "check:gitleaks: unsupported arch: $(uname -m)" >&2
       exit 1

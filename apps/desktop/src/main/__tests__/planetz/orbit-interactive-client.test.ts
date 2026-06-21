@@ -6,15 +6,47 @@ import {
 } from '@planetz/shared'
 import { execa } from 'execa'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
+
+const { orbitTestRoot } = vi.hoisted(() => ({
+  orbitTestRoot: '/tmp/planetz-orbit-interactive-test-root',
+}))
+
+vi.mock('execa', () => ({
+  execa: vi.fn(),
+}))
+
+vi.mock('../../takt/exec-cli.js', () => ({
+  candidateBundledOrbitRoots: () => [orbitTestRoot],
+  resolveRunnableBundledOrbitRoot: () => orbitTestRoot,
+}))
+
+vi.mock('../../lib/orbit-child-runner.js', () => ({
+  resolveOrbitChildRunnerBinary: () => '/usr/bin/node',
+  buildOrbitChildRunnerEnv: (
+    _binary: string,
+    extras: Record<string, string | undefined>,
+  ): Record<string, string> => ({
+    ...process.env,
+    ...Object.fromEntries(
+      Object.entries(extras).filter((entry): entry is [string, string] => entry[1] !== undefined),
+    ),
+  }),
+  traceOrbitChildRunnerSpawn: () => {},
+}))
+
+vi.mock('node:fs', async (importOriginal) => {
+  const mod = await importOriginal<typeof import('node:fs')>()
+  return {
+    ...mod,
+    existsSync: () => true,
+  }
+})
+
 import {
   assertOrbitInteractiveOk,
   orbitInteractiveStart,
   orbitInteractiveTurn,
 } from '../../planetz/orbit-interactive-client.js'
-
-vi.mock('execa', () => ({
-  execa: vi.fn(),
-}))
 
 function baseResponse(
   result: NonNullable<OrbitInteractiveResponse['result']>,

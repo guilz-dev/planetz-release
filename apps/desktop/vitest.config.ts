@@ -1,9 +1,18 @@
+import { resolve } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { defineConfig } from 'vitest/config'
 import { vitestCoverageOptions } from '../../scripts/vitest-coverage-defaults.ts'
 
+const desktopRoot = fileURLToPath(new URL('.', import.meta.url))
+const electronStub = resolve(desktopRoot, 'src/main/__tests__/stubs/electron.ts')
 const withCoverage = process.argv.includes('--coverage')
 
 export default defineConfig({
+  resolve: {
+    alias: {
+      electron: electronStub,
+    },
+  },
   test: {
     // Instrumentation slows bundled-orbit integration tests; keep default timeout for `vitest run`.
     testTimeout: withCoverage ? 30_000 : 5_000,
